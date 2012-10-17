@@ -1,4 +1,7 @@
 <?php
+require_once 'ApiException.class.php';
+
+
 class KoalaClient {
   protected $url = "";
   protected $useragent = "KoalaClient/0.1";
@@ -37,13 +40,13 @@ class KoalaClient {
     // Éxécution de la requête
     $result = curl_exec($ch);
     
-    // Si erreur d'appel de cron fatal
+    // Si erreur d'appel de cron
     if (curl_error($ch) != 0) {
-      return false;
+      throw new ApiException(503);
     }
-    // Si erreur non trouvé, c'est pas fatal (on renverra 404 plus tard)
+    // Si erreur http, on la renvoie
     else if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
-      return false;
+      throw new ApiException(curl_getinfo($ch, CURLINFO_HTTP_CODE));
     }
     // Sinon, on renvoie les infos
     else {
