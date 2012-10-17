@@ -1,4 +1,9 @@
 <?php
+
+
+require_once 'KoalaClient.class.php';
+
+
 class Ginger extends KoalaClient {
   private $key;
 
