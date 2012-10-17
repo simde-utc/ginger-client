@@ -33,10 +33,11 @@ class Ginger extends KoalaClient {
     return $this->apiCall("$login/cotisations");
   }
   
-  public function addCotisation($login, $debut, $fin){
+  public function addCotisation($login, $debut, $fin, $montant){
     $params = array(
       "debut" => $debut,
-      "fin" => $fin
+      "fin" => $fin,
+      "montant" => $montant,
     );
     return $this->apiCall("$login/cotisations", $params, "POST");
   }
