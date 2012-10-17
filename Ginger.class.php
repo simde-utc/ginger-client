@@ -9,7 +9,7 @@ class Ginger extends KoalaClient {
   
   public function apiCall($endpoint, $params = array(), $method = "GET") {
     // Ajout de la clé aux requêtes et appel du parent
-    $params = array_merge($params, array("key" => $this->key));
+    $params["key"] = $this->key;
     return parent::apiCall($endpoint, $params, $method);
   }
   
