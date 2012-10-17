@@ -13,8 +13,15 @@ class Ginger extends KoalaClient {
     return parent::apiCall($endpoint, $params, $method);
   }
   
-  public function getLogin($login) {
-    return $this->apiCall($login);
+  /**
+   * Récupérer un utilisateur à partir d'un login ou d'un
+   * id de badge (si la clé l'autorise).
+   *
+   * @param string $ident Identification (login ou badge)
+   * @return object Utilisateur
+   */
+  public function getUser($ident) {
+    return $this->apiCall($ident);
   }
   
   public function getCotisations($login) {
