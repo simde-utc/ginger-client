@@ -3,7 +3,7 @@ class Ginger extends KoalaClient {
   private $key;
 
   public function __construct($key){
-    $this->url = "http://assos.utc.fr/ginger/v1/";
+    $this->url = "https://assos.utc.fr/ginger/v1/";
     $this->key = $key;
   }
   
