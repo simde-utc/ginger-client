@@ -21,7 +21,9 @@ class KoalaClient {
     $settings = array(
       CURLOPT_USERAGENT => $this->useragent,
       CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_CUSTOMREQUEST => $method
+      CURLOPT_CUSTOMREQUEST => $method,
+      CURLOPT_SSL_VERIFYPEER => true,
+      CURLOPT_CAINFO => __DIR__."/TERENA_SSL_CA.pem",
     );
     
     // Construction de l'URL et des postfields
@@ -41,7 +43,7 @@ class KoalaClient {
     $result = curl_exec($ch);
     
     // Si erreur d'appel de cron
-    if (curl_error($ch) != 0) {
+    if (curl_errno($ch) != 0) {
       throw new ApiException(503);
     }
     // Si erreur http, on la renvoie
