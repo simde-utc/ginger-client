@@ -29,6 +29,10 @@ class Ginger extends KoalaClient {
     return $this->apiCall($ident);
   }
   
+  public function findPersonne($loginPart) {
+    return $this->apiCall("find/$loginPart");
+  }
+  
   public function getCotisations($login) {
     return $this->apiCall("$login/cotisations");
   }
