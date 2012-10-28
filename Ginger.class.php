@@ -7,8 +7,8 @@ require_once 'KoalaClient.class.php';
 class Ginger extends KoalaClient {
   private $key;
 
-  public function __construct($key){
-    $this->url = "https://assos.utc.fr/ginger/v1/";
+  public function __construct($key, $url="https://assos.utc.fr/ginger/v1/"){
+    $this->url = $url;
     $this->key = $key;
   }
   
