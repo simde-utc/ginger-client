@@ -19,14 +19,24 @@ class Ginger extends KoalaClient {
   }
   
   /**
-   * Récupérer un utilisateur à partir d'un login ou d'un
-   * id de badge (si la clé l'autorise).
+   * Récupérer un utilisateur à partir d'un login.
    *
-   * @param string $ident Identification (login ou badge)
+   * @param string $login Login
    * @return object Utilisateur
    */
-  public function getUser($ident) {
-    return $this->apiCall($ident);
+  public function getUser($login) {
+    return $this->apiCall($login);
+  }
+  
+  /**
+   * Récupérer un utilisateur à partir d'un id de badge
+   * (si la clé l'autorise).
+   *
+   * @param string $badge Identifiant de badge
+   * @return object Utilisateur
+   */
+  public function getCard($badge) {
+    return $this->apiCall("badge/$badge");
   }
   
   public function findPersonne($loginPart) {
@@ -46,4 +56,3 @@ class Ginger extends KoalaClient {
     return $this->apiCall("$login/cotisations", $params, "POST");
   }
 }
-?>
