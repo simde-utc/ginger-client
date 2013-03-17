@@ -1,4 +1,6 @@
 <?php
+namespace Ginger\Client;
+
 class ApiException extends Exception {
 	static $http = array (
 		100 => "Continue",

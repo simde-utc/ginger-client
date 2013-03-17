@@ -1,10 +1,7 @@
 <?php
+namespace Ginger\Client;
 
-
-require_once 'KoalaClient.class.php';
-
-
-class Ginger extends KoalaClient {
+class GingerClient extends KoalaClient {
   private $key;
 
   public function __construct($key, $url="https://assos.utc.fr/ginger/v1/"){
