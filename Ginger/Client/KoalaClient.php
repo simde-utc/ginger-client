@@ -22,7 +22,7 @@ class KoalaClient {
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_CUSTOMREQUEST => $method,
       CURLOPT_SSL_VERIFYPEER => true,
-      CURLOPT_CAINFO => __DIR__."/../TERENA_SSL_CA.pem",
+      CURLOPT_CAINFO => __DIR__."/../../TERENA_SSL_CA.pem",
     );
     
     // Construction de l'URL et des postfields
