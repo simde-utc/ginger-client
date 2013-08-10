@@ -52,4 +52,14 @@ class GingerClient extends KoalaClient {
     );
     return $this->apiCall("$login/cotisations", $params, "POST");
   }
+  
+  /**
+   * Récupérer l'historique des cotisations par semestre
+   * (nécessite une clé avec le droit cotisation).
+   *
+   * @return array Stats (semestre => nombre de cotisations)
+   */
+  public function getStats() {
+    return $this->apiCall("stats");
+  }
 }
