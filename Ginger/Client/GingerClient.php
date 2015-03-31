@@ -64,7 +64,7 @@ class GingerClient extends KoalaClient {
   }
 
  public function getExts() {
-  	return $this->apiCall("exts")
+    return $this->apiCall("exts");
   }
   
   public function setPersonne($login, $nom, $prenom, $mail, $is_adulte){
