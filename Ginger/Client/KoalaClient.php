@@ -82,7 +82,8 @@ class KoalaClient {
     85 => 'CURLE_RTSP_CSEQ_ERROR',
     86 => 'CURLE_RTSP_SESSION_ERROR',
     87 => 'CURLE_FTP_BAD_FILE_LIST',
-    88 => 'CURLE_CHUNK_FAILED'
+    88 => 'CURLE_CHUNK_FAILED',
+    89 => 'CURLE_NO_CONNECTION_AVAILABLE'
   );
 
   protected function apiCall($endpoint, $params = array(), $method = "GET") {
