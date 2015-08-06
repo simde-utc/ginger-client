@@ -128,7 +128,7 @@ class KoalaClient {
     }
     // Si erreur http, on la renvoie
     else if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
-      throw new ApiException(curl_getinfo($ch, CURLINFO_HTTP_CODE), null);
+      throw new ApiException(curl_getinfo($ch, CURLINFO_HTTP_CODE));
     }
     // Sinon, on renvoie les infos
     else {
