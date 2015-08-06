@@ -41,10 +41,17 @@ class ApiException extends \Exception {
 		501 => "Not Implemented",
 		502 => "Bad Gateway",
 		503 => "Service Unavailable",
-		504 => "Gateway Time-out"        
+		504 => "Gateway Time-out"
 	);
-	public function __construct($code) {
-		parent::__construct($this::$http[$code], $code);
+
+	public function __construct($code, $message = null, \Exception $previous = null) {
+		$info = $this::$http[$code];
+
+		if (!is_null($message)) {
+			$info .= sprintf('. Message: %s', $message);
+		}
+
+		parent::__construct($info, $code, $previous);
 		$this->code = $code;
 	}
 }
